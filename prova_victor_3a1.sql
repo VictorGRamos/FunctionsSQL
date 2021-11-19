@@ -36,7 +36,7 @@ SET @retorno = "";
 SELECT CONCAT(produto.desc_produto," / ", item_pedido.qnt_item_pedido, " Unidades /" , produto.preco_unitario, " Preco Unitario /", produto.dt_validade, " Data Validade")
 FROM pedido, item_pedido, produto
 WHERE item_pedido.cd_produto = produto.cd_produto AND pedido.nr_pedido = item_pedido.nr_pedido AND
-pedido.nr_pedido = 1 ORDER BY preco_unitario DESC limit 1 INTO @retorno;
+pedido.nr_pedido = n_pedido ORDER BY preco_unitario DESC limit 1 INTO @retorno;
 RETURN @retorno;
 END$$
 

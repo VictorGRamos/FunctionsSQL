@@ -25,6 +25,11 @@ DELIMITER $$
 --
 -- Funções
 --
+/*
+Crie uma função que recebe o número de um pedido e retorna um VARCHAR com a
+descrição do produto, a quantidade vendida, o preço unitário e data de validade do
+produto mais caro do pedido informado como parâmetro.
+*/
 DROP FUNCTION IF EXISTS `questao_3`$$
 CREATE DEFINER=`root`@`localhost` FUNCTION `questao_3` (`n_pedido` INT) RETURNS VARCHAR(200) CHARSET utf8mb4 BEGIN
 SET @retorno = "";
@@ -35,6 +40,12 @@ pedido.nr_pedido = 1 ORDER BY preco_unitario DESC limit 1 INTO @retorno;
 RETURN @retorno;
 END$$
 
+/*
+Crie uma função que recebe o código de um produto, um mês e um ano e retorna um
+VARCHAR com a descrição do produto, o mês e o ano no formato MM/YYYY e o número
+total de itens desse produto que foram vendidos no mês e ano informados como
+parâmetro.
+*/
 DROP FUNCTION IF EXISTS `questao_4`$$
 CREATE DEFINER=`root`@`localhost` FUNCTION `questao_4` (`codigo` INT, `mes` INT, `ano` INT) RETURNS VARCHAR(200) CHARSET utf8mb4 BEGIN
 SET @retorno = " ";
